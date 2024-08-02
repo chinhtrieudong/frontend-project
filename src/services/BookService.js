@@ -1,7 +1,11 @@
 import axios from './customize-axios';
 
-const fetchAllBooks = () => {
-    return axios.get("/books");
+const fetchAllBooks = (page) => {
+    return axios.get(`/books?page=${page}&size=2`);
 }
 
-export { fetchAllBooks };
+const createBook = (bookName, author, price) => {
+    return axios.post('/books', { bookName, author, price });
+}
+
+export { fetchAllBooks, createBook };
